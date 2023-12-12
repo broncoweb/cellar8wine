@@ -229,4 +229,4 @@ setTimeout(function() {
               widget.querySelector('.v65-widgetProduct-addToCart-outOfStockMessage').style.display = 'block';
         }
     });
-},2000);
+},4000);
