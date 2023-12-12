@@ -8,17 +8,17 @@ $(function() { // on DOM ready
     var stateSet = getCookie("myState"); // pull the session storage cookie "myState" (stores selected state) into stateSet variable
 if (stateSet == null || stateSet == undefined) { // if stateSet is null
         document.cookie = "myState=\'\'"; // then create a session storage cookie myState and make it blank
-}else if(stateSet.length > 0){
-      var stateUpperCase = stateSet.toUpperCase();
-     $('#shopStateSelect').val(stateUpperCase);
-      $('#shopStateSelect option[value='+ stateUpperCase +']').prop('selected', 'selected');
-    }
-    filterStateProfile(); // run state profile filters on all shopping items.
+} else if(stateSet.length > 0){
+    var stateUpperCase = stateSet.toUpperCase();
+    $('#shopStateSelect').val(stateUpperCase);
+    $('#shopStateSelect option[value='+ stateUpperCase +']').prop('selected', 'selected');
+}
+filterStateProfile(); // run state profile filters on all shopping items.
     var ageGateClicked = getCookie("agClicked"); // pull the session storage cookie "agClicked" (determines whether enter site button  has been clicked)
     if (ageGateClicked !== "yes") { // if yes
         $('#ageGate').css("display", "flex"); // display the age gate
         $('#ageGate').focus(); // focus on the age gate
-          $('body').addClass("no-scroll"); // adds no-scroll class to body
+        $('body').addClass("no-scroll"); // adds no-scroll class to body
     }
 });
 
@@ -27,11 +27,11 @@ $(function() { // on DOM ready
         if (getCookie("myState") !== "") { // if myState is not empty
             document.cookie = "agClicked=yes;path=/"; // set agClicked state to yes, cookie path s/b set too
             $('#ageGate').fadeOut('slow'); // fade out the age gate
-              document.body.className = ''; // clears any added classes from the body
-              var stateSet = getCookie("myState"); // pull the session storage cookie "myState" (stores selected state) into stateSet variable
-              var stateUpperCase = stateSet.toUpperCase();
-             $('#shopStateSelect').val(stateUpperCase);
-              $('#shopStateSelect option[value='+ stateUpperCase +']').prop('selected', 'selected');
+                document.body.className = ''; // clears any added classes from the body
+                var stateSet = getCookie("myState"); // pull the session storage cookie "myState" (stores selected state) into stateSet variable
+                var stateUpperCase = stateSet.toUpperCase();
+                $('#shopStateSelect').val(stateUpperCase);
+                $('#shopStateSelect option[value='+ stateUpperCase +']').prop('selected', 'selected');
             return false // stop page from submitting
         } else {
             $("#ageGateDropdown").focus(); // focus to the state selector
@@ -95,9 +95,9 @@ function filterStateProfile() {
                 $(".stateName").each(function(i) {
                     stateNames.push($(this).text());
                 });
-                cartDiv = ".csp-" + v;
-                notesDiv = cartDiv + " + .cant_ship";
-                brandDiv = ".bsp-" + v + " .brand-notice";
+                const cartDiv = ".csp-" + v;
+                const notesDiv = cartDiv + " + .cant_ship";
+                const brandDiv = ".bsp-" + v + " .brand-notice";
 
                 if ($.inArray(getCookie("myState"), stateNames) !== -1) {
                     $(cartDiv).show();
@@ -116,8 +116,8 @@ function filterStateProfile() {
 
 // Scroll buttons
 $(".scroll_container-button").on("click", function() {
-    scrollContent = $(this).siblings(".scroll_container-content")[0];
-    scrollOver = ($(this).hasClass("prev")) ? -Math.abs($(scrollContent).width()) : $(scrollContent).width();
+    const scrollContent = $(this).siblings(".scroll_container-content")[0];
+    const scrollOver = ($(this).hasClass("prev")) ? -Math.abs($(scrollContent).width()) : $(scrollContent).width();
     scrollContent.scrollBy({
         left: scrollOver,
         top: scrollOver,
@@ -157,7 +157,7 @@ $(window).on("load", function() {
     $(".v65-widgetProduct-addToCart-quantity").append('<a class="cart-widget-quantity-button add" href="#"> Add Quantity</a>');
 
     $(".cart-widget-quantity-button").click(function() {
-        quantField = $(this).siblings(".cart-widget-quantity-field")[0];
+        let quantField = $(this).siblings(".cart-widget-quantity-field")[0];
         var quantValue = $(quantField).val();
         ($(this).hasClass("sub") && quantValue > 1) ? quantValue-- : (($(this).hasClass("add")) ? quantValue++ : quantValue);
         $(quantField).val(quantValue);
@@ -176,7 +176,7 @@ $(window).on("load", function() {
 
 // Add .w--current to any classes with a certain path prefix.
 $(window).on("load", function() {
-    specialPages = [
+    const specialPages = [
         ["shop", "#nav-shop-link"],
         ["brands", "#nav-brands-link"],
         ["news", "#nav-news-link"]
