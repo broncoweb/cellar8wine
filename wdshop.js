@@ -172,6 +172,17 @@ $(window).on("load", function() {
     $(".login_widget").children().wrap('<li class="cart_menu-item"></li>');
     $(".login_widget").unwrap();
     $(".login_widget").children().unwrap();
+
+    // Hide pricing for Out of Stock Items
+    setTimeout(function() {
+        const cartWidgets = document.querySelectorAll('.cart-widget-fieldset');
+        cartWidgets.forEach(widget => {
+            if(widget.querySelector('.v65-widgetProduct-addToCart-outOfStockMessage')){
+                  widget.querySelectorAll('div').style.display = 'none';
+                  widget.querySelector('.v65-widgetProduct-addToCart-outOfStockMessage').style.display = 'block';
+            }
+        });
+    },4000);
 });
 
 // Add .w--current to any classes with a certain path prefix.
@@ -221,12 +232,3 @@ $(window).on("load", function() {
 
 //Prevent cart item links from firing in the cart widget
 $(".cart_menu-item").on("click", ".v65-widgetModalCart-itemSummaryDescription a", () => false );
-setTimeout(function() {
-    const cartWidgets = document.querySelectorAll('.cart-widget-fieldset');
-      cartWidgets.forEach(widget => {
-          if(widget.querySelector('.v65-widgetProduct-addToCart-outOfStockMessage')){
-              widget.querySelectorAll('div').style.display = 'none';
-              widget.querySelector('.v65-widgetProduct-addToCart-outOfStockMessage').style.display = 'block';
-        }
-    });
-},4000);
