@@ -182,8 +182,8 @@ $(window).on("load", function() {
                 const spaceDiv = document.createElement('div');
                 spaceDiv.style.height = '2.8em';
                 item.querySelector('.shop-items-instance-info').append(spaceDiv);
-                widget.querySelectorAll('div').forEach(div => div.style.visibility = 'hidden');
-                widget.querySelector('.v65-widgetProduct-addToCart-outOfStockMessage').style.visibility = 'visible';
+                widget.querySelectorAll('div').forEach(div => div.style.display = 'none');
+                widget.querySelector('.v65-widgetProduct-addToCart-outOfStockMessage').style.display = 'none';
             }
         });
     },4000);
