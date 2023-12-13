@@ -175,7 +175,7 @@ $(window).on("load", function() {
 
     // Hide pricing for Out of Stock Items
     setTimeout(function() {
-        const shopItems = document.querySelectorAll('.shop-items-instance w-dyn-item')
+        const shopItems = document.querySelectorAll('.shop-items-instance')
         shopItems.forEach(item => {
             const widget = item.querySelector('.cart-widget-fieldset');
             if(widget.querySelector('.v65-widgetProduct-addToCart-outOfStockMessage')){
