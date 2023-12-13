@@ -186,7 +186,7 @@ $(window).on("load", function() {
                 widget.querySelector('.v65-widgetProduct-addToCart-outOfStockMessage').style.display = 'block';
             }
         });
-    },1000);
+    },1600);
 });
 
 // Add .w--current to any classes with a certain path prefix.
