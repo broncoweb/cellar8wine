@@ -183,7 +183,7 @@ $(window).on("load", function() {
                 spaceDiv.style.height = '2.8em';
                 item.querySelector('.shop-items-instance-info').append(spaceDiv);
                 widget.querySelectorAll('div').forEach(div => div.style.display = 'none');
-                widget.querySelector('.v65-widgetProduct-addToCart-outOfStockMessage').style.display = 'none';
+                widget.querySelector('.v65-widgetProduct-addToCart-outOfStockMessage').style.display = 'block';
             }
         });
     },4000);
