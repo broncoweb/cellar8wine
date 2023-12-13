@@ -175,11 +175,15 @@ $(window).on("load", function() {
 
     // Hide pricing for Out of Stock Items
     setTimeout(function() {
-        const cartWidgets = document.querySelectorAll('.cart-widget-fieldset');
-        cartWidgets.forEach(widget => {
+        const shopItems = document.querySelectorAll('.shop-items-instance .w-dyn-item')
+        shopItems.forEach(item => {
+            const widget = item.querySelector('.cart-widget-fieldset');
             if(widget.querySelector('.v65-widgetProduct-addToCart-outOfStockMessage')){
-                  widget.querySelectorAll('div').style.display = 'none';
-                  widget.querySelector('.v65-widgetProduct-addToCart-outOfStockMessage').style.display = 'block';
+                const spaceDiv = document.createElement('div');
+                spaceDiv.style.height = '2.8em';
+                item.querySelector('.shop-items-instance-info').append(spaceDiv);
+                widget.querySelectorAll('div').forEach(div => div.style.visibility = 'hidden');
+                widget.querySelector('.v65-widgetProduct-addToCart-outOfStockMessage').style.visibility = 'visible';
             }
         });
     },4000);
