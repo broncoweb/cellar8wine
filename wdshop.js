@@ -178,7 +178,7 @@ $(window).on("load", function() {
         const shopItems = document.querySelectorAll('.shop-items-instance')
         shopItems.forEach(item => {
             const widget = item.querySelector('.cart-widget-fieldset');
-            if(widget.querySelector('.v65-widgetProduct-addToCart-outOfStockMessage')){
+            if(widget && widget.querySelector('.v65-widgetProduct-addToCart-outOfStockMessage')){
                 const spaceDiv = document.createElement('div');
                 spaceDiv.style.height = '2.8em';
                 item.querySelector('.shop-items-instance-info').append(spaceDiv);
